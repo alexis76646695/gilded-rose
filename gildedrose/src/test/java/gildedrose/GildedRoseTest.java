@@ -81,4 +81,15 @@ public class GildedRoseTest {
         assertEquals(elixirQuality - 1, normalItemElixir.getQuality());
         assertEquals(elixirSellIn - 1, normalItemElixir.getSellIn());
     }
+
+    @Test
+    public void testOriginalBehaviorAgedBrieItemUpdate() {
+        int quality = agedBrie.getQuality();
+        int sellIn = agedBrie.getSellIn();
+
+        GildedRose.updateQuality();
+
+        assertEquals(quality + 1, agedBrie.getQuality());
+        assertEquals(sellIn - 1, agedBrie.getSellIn());
+    }
 }
