@@ -20,19 +20,19 @@ public class GildedRoseTest {
 
     @Before
     public void setUp() {
-        normalItemElixir = new Item("Elixir of the Mongoose", 5, 7);
-        normalItemDextery = new Item("+5 Dexterity Vest", 10, 20);
         agedBrie = new Item("Aged Brie", 2, 0);
-        sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
         backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20);
         conjured = new Item("Conjured Mana Cake", 3, 6);
+        normalItemElixir = new Item("Elixir of the Mongoose", 5, 7);
+        normalItemDextery = new Item("+5 Dexterity Vest", 10, 20);
+        sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
 
         originalItems.add(agedBrie);
-        originalItems.add(sulfuras);
         originalItems.add(backstagePasses);
         originalItems.add(conjured);
         originalItems.add(normalItemDextery);
         originalItems.add(normalItemElixir);
+        originalItems.add(sulfuras);
 
         //Fill Original Item values
         GildedRose.items = originalItems;
@@ -91,5 +91,30 @@ public class GildedRoseTest {
 
         assertEquals(quality + 1, agedBrie.getQuality());
         assertEquals(sellIn - 1, agedBrie.getSellIn());
+    }
+
+    @Test
+    public void testOriginalBehaviorBackstagePassesItemUpdate() {
+        int quality = backstagePasses.getQuality();
+        int sellIn = backstagePasses.getSellIn();
+
+        GildedRose.updateQuality();
+
+        assertEquals(quality + 1, backstagePasses.getQuality());
+        assertEquals(sellIn - 1, backstagePasses.getSellIn());
+
+        backstagePasses.setSellIn(10);
+        quality = backstagePasses.getQuality();
+        sellIn = backstagePasses.getSellIn();
+        GildedRose.updateQuality();
+        assertEquals(quality + 2, backstagePasses.getQuality());
+        assertEquals(sellIn - 1, backstagePasses.getSellIn());
+
+        backstagePasses.setSellIn(5);
+        quality = backstagePasses.getQuality();
+        sellIn = backstagePasses.getSellIn();
+        GildedRose.updateQuality();
+        assertEquals(quality + 3, backstagePasses.getQuality());
+        assertEquals(sellIn - 1, backstagePasses.getSellIn());
     }
 }
