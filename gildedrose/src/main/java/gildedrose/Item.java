@@ -1,3 +1,5 @@
+package gildedrose;
+
 
 public class Item {
 

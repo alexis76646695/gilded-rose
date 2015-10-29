@@ -1,3 +1,5 @@
+package gildedrose;
+
 
 import static org.junit.Assert.*;
 
