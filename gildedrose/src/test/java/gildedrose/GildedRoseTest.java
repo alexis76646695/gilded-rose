@@ -44,29 +44,6 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void testDownQualityLessThanZero() {
-        normalItemElixir.setQuality(-5);
-        assertEquals(0, normalItemElixir.getQuality());
-    }
-
-    @Test
-    public void testSellInDaysDontBeNegative() {
-        //Update 10 times
-        for (int i = 0; i < 10; i++) {
-            normalItemElixir.update();
-            assertTrue("The sellIn days value cannot be negative", normalItemElixir.getSellIn() >= 0);
-        }
-    }
-
-    @Test
-    public void testUpdateSellInDays() {
-        for (int sellInDays = 5; sellInDays > 0; sellInDays--) {
-            assertEquals(normalItemElixir.getSellIn(), sellInDays);
-            normalItemElixir.update();
-        }
-    }
-
-    @Test
     public void testOriginalBehaviorNormalItemsUpdate() {
         int dexteryQuality = normalItemDextery.getQuality();
         int dexterySellIn = normalItemDextery.getSellIn();
@@ -116,5 +93,10 @@ public class GildedRoseTest {
         GildedRose.updateQuality();
         assertEquals(quality + 3, backstagePasses.getQuality());
         assertEquals(sellIn - 1, backstagePasses.getSellIn());
+
+        backstagePasses.setSellIn(0);
+        GildedRose.updateQuality();
+        assertEquals(0, backstagePasses.getQuality());
+        assertEquals(0, backstagePasses.getSellIn());
     }
 }
