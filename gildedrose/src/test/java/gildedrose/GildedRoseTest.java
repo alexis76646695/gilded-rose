@@ -102,4 +102,26 @@ public class GildedRoseTest {
         GildedRose.updateQuality();
         assertEquals(0, backstagePasses.getQuality());
     }
+
+    @Test
+    public void testOriginalBehaviorConjuredUpdate() {
+        int quality = conjured.getQuality();
+        int sellIn = conjured.getSellIn();
+
+        GildedRose.updateQuality();
+
+        assertEquals(quality - 1, conjured.getQuality());
+        assertEquals(sellIn - 1, conjured.getSellIn());
+    }
+
+    @Test
+    public void testOriginalBehaviorSulfurasUpdate() {
+        int quality = sulfuras.getQuality();
+        int sellIn = sulfuras.getSellIn();
+
+        GildedRose.updateQuality();
+
+        assertEquals(quality, sulfuras.getQuality());
+        assertEquals(0, sulfuras.getSellIn());
+    }
 }
