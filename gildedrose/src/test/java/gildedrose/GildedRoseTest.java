@@ -57,6 +57,18 @@ public class GildedRoseTest {
 
         assertEquals(elixirQuality - 1, normalItemElixir.getQuality());
         assertEquals(elixirSellIn - 1, normalItemElixir.getSellIn());
+
+        dexteryQuality = normalItemDextery.getQuality();
+        elixirQuality = normalItemElixir.getQuality();
+
+        normalItemDextery.setSellIn(-1);
+        normalItemElixir.setSellIn(-1);
+
+        GildedRose.updateQuality();
+
+        assertEquals(dexteryQuality - 2, normalItemDextery.getQuality());
+        assertEquals(elixirQuality - 2, normalItemElixir.getQuality());
+
     }
 
     @Test
@@ -72,6 +84,11 @@ public class GildedRoseTest {
         quality = agedBrie.getQuality();
         GildedRose.updateQuality();
         assertEquals(quality + 1, agedBrie.getQuality());
+
+        quality = agedBrie.getQuality();
+        agedBrie.setSellIn(-1);
+        GildedRose.updateQuality();
+        assertEquals(quality + 2, agedBrie.getQuality());
     }
 
     @Test
@@ -101,6 +118,11 @@ public class GildedRoseTest {
         backstagePasses.setSellIn(0);
         GildedRose.updateQuality();
         assertEquals(0, backstagePasses.getQuality());
+
+        backstagePasses.setSellIn(-1);
+        GildedRose.updateQuality();
+        assertEquals(0, backstagePasses.getQuality());
+
     }
 
     @Test
@@ -112,6 +134,13 @@ public class GildedRoseTest {
 
         assertEquals(quality - 1, conjured.getQuality());
         assertEquals(sellIn - 1, conjured.getSellIn());
+
+        quality = conjured.getQuality();
+        conjured.setSellIn(-1);
+
+        GildedRose.updateQuality();
+
+        assertEquals(quality - 2, conjured.getQuality());
     }
 
     @Test
@@ -124,4 +153,5 @@ public class GildedRoseTest {
         assertEquals(quality, sulfuras.getQuality());
         assertEquals(0, sulfuras.getSellIn());
     }
+
 }
