@@ -14,4 +14,9 @@ public class SulfurasItem extends Item {
     public void fixQuality() {
     }
 
+    @Override
+    public int getSellIn() {
+        return 0;
+    }
+
 }
