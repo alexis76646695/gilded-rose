@@ -46,17 +46,13 @@ public class GildedRoseTest {
     @Test
     public void testOriginalBehaviorNormalItemsUpdate() {
         int dexteryQuality = normalItemDextery.getQuality();
-        int dexterySellIn = normalItemDextery.getSellIn();
         int elixirQuality = normalItemElixir.getQuality();
-        int elixirSellIn = normalItemElixir.getSellIn();
 
         GildedRose.updateQuality();
 
         assertEquals(dexteryQuality - 1, normalItemDextery.getQuality());
-        assertEquals(dexterySellIn - 1, normalItemDextery.getSellIn());
 
         assertEquals(elixirQuality - 1, normalItemElixir.getQuality());
-        assertEquals(elixirSellIn - 1, normalItemElixir.getSellIn());
 
         dexteryQuality = normalItemDextery.getQuality();
         elixirQuality = normalItemElixir.getQuality();
@@ -81,12 +77,10 @@ public class GildedRoseTest {
     @Test
     public void testOriginalBehaviorAgedBrieItemUpdate() {
         int quality = agedBrie.getQuality();
-        int sellIn = agedBrie.getSellIn();
 
         GildedRose.updateQuality();
 
         assertEquals(quality + 1, agedBrie.getQuality());
-        assertEquals(sellIn - 1, agedBrie.getSellIn());
 
         quality = agedBrie.getQuality();
         GildedRose.updateQuality();
@@ -95,59 +89,51 @@ public class GildedRoseTest {
         quality = agedBrie.getQuality();
         agedBrie.setSellIn(-1);
         GildedRose.updateQuality();
-        assertEquals(quality + 2, agedBrie.getQuality());
+        assertEquals(quality + 1, agedBrie.getQuality());
     }
 
     @Test
     public void testOriginalBehaviorBackstagePassesItemUpdate() {
         int quality = backstagePasses.getQuality();
-        int sellIn = backstagePasses.getSellIn();
 
         GildedRose.updateQuality();
 
         assertEquals(quality + 1, backstagePasses.getQuality());
-        assertEquals(sellIn - 1, backstagePasses.getSellIn());
 
         backstagePasses.setSellIn(10);
         quality = backstagePasses.getQuality();
-        sellIn = backstagePasses.getSellIn();
         GildedRose.updateQuality();
         assertEquals(quality + 2, backstagePasses.getQuality());
-        assertEquals(sellIn - 1, backstagePasses.getSellIn());
 
         backstagePasses.setSellIn(5);
         quality = backstagePasses.getQuality();
-        sellIn = backstagePasses.getSellIn();
         GildedRose.updateQuality();
         assertEquals(quality + 3, backstagePasses.getQuality());
-        assertEquals(sellIn - 1, backstagePasses.getSellIn());
 
         backstagePasses.setSellIn(0);
+        quality = backstagePasses.getQuality();
         GildedRose.updateQuality();
-        assertEquals(0, backstagePasses.getQuality());
+        assertEquals(quality + 3, backstagePasses.getQuality());
 
         backstagePasses.setSellIn(-1);
         GildedRose.updateQuality();
         assertEquals(0, backstagePasses.getQuality());
-
     }
 
     @Test
     public void testOriginalBehaviorConjuredUpdate() {
         int quality = conjured.getQuality();
-        int sellIn = conjured.getSellIn();
 
         GildedRose.updateQuality();
 
-        assertEquals(quality - 1, conjured.getQuality());
-        assertEquals(sellIn - 1, conjured.getSellIn());
+        assertEquals(quality - 2, conjured.getQuality());
 
         quality = conjured.getQuality();
         conjured.setSellIn(-1);
 
         GildedRose.updateQuality();
 
-        assertEquals(quality - 2, conjured.getQuality());
+        assertEquals(quality - 4, conjured.getQuality());
 
         conjured.setQuality(0);
         GildedRose.updateQuality();
@@ -157,8 +143,8 @@ public class GildedRoseTest {
     @Test
     public void testOriginalBehaviorSulfurasUpdate() {
         int quality = sulfuras.getQuality();
-        int sellIn = sulfuras.getSellIn();
 
+        GildedRose.updateQuality();
         GildedRose.updateQuality();
 
         assertEquals(quality, sulfuras.getQuality());
