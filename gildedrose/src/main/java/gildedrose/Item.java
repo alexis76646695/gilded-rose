@@ -1,6 +1,6 @@
 package gildedrose;
 
-public class Item {
+public abstract class Item {
 
     public String name;
     public int sellIn;
@@ -38,8 +38,11 @@ public class Item {
     }
 
     public void update() {
-        quality = (sellIn < 0) ? quality - 2 : quality - 1;
+        fixQuality();
         quality = (quality < 0) ? 0 : quality;
+        quality = (quality > 50) ? 50 : quality;
         sellIn--;
     }
+
+    public abstract void fixQuality();
 }

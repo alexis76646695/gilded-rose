@@ -20,12 +20,12 @@ public class GildedRoseTest {
 
     @Before
     public void setUp() {
-        agedBrie = new Item("Aged Brie", 2, 0);
-        backstagePasses = new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20);
-        conjured = new Item("Conjured Mana Cake", 3, 6);
+        agedBrie = new AgedBrieItem("Aged Brie", 2, 0);
+        backstagePasses = new BackstageItem("Backstage passes to a TAFKAL80ETC concert", 15, 20);
+        conjured = new ConjuredItem("Conjured Mana Cake", 3, 6);
         normalItemElixir = new NormalItem("Elixir of the Mongoose", 5, 7);
         normalItemDextery = new NormalItem("+5 Dexterity Vest", 10, 20);
-        sulfuras = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
+        sulfuras = new SulfurasItem("Sulfuras, Hand of Ragnaros", 0, 80);
 
         originalItems.add(agedBrie);
         originalItems.add(backstagePasses);
