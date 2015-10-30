@@ -68,6 +68,10 @@ public class GildedRoseTest {
 
         assertEquals(quality + 1, agedBrie.getQuality());
         assertEquals(sellIn - 1, agedBrie.getSellIn());
+
+        quality = agedBrie.getQuality();
+        GildedRose.updateQuality();
+        assertEquals(quality + 1, agedBrie.getQuality());
     }
 
     @Test
@@ -97,6 +101,5 @@ public class GildedRoseTest {
         backstagePasses.setSellIn(0);
         GildedRose.updateQuality();
         assertEquals(0, backstagePasses.getQuality());
-        assertEquals(0, backstagePasses.getSellIn());
     }
 }

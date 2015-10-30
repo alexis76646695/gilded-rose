@@ -22,6 +22,7 @@ public class ItemTest {
         normalItem = new Item("Normal Item", 5, 20);
     }
 
+    /*
     @Test
     public void testDownQualityLessThanZero() {
         normalItem.setQuality(-5);
@@ -44,5 +45,5 @@ public class ItemTest {
             normalItem.update();
         }
     }
-
+    */
 }

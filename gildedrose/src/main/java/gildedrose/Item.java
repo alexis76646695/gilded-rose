@@ -34,10 +34,6 @@ public class Item {
     }
 
     public void setQuality(int quality) {
-        this.quality = (quality < 0) ? 0 : quality;
-    }
-
-    void update() {
-        this.sellIn = (this.sellIn <= 0) ? this.sellIn : --sellIn;
+        this.quality = quality;
     }
 }
