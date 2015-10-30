@@ -69,6 +69,13 @@ public class GildedRoseTest {
         assertEquals(dexteryQuality - 2, normalItemDextery.getQuality());
         assertEquals(elixirQuality - 2, normalItemElixir.getQuality());
 
+        normalItemDextery.setQuality(0);
+        normalItemElixir.setQuality(0);
+
+        GildedRose.updateQuality();
+
+        assertEquals(0, normalItemDextery.getQuality());
+        assertEquals(0, normalItemElixir.getQuality());
     }
 
     @Test
@@ -141,6 +148,10 @@ public class GildedRoseTest {
         GildedRose.updateQuality();
 
         assertEquals(quality - 2, conjured.getQuality());
+
+        conjured.setQuality(0);
+        GildedRose.updateQuality();
+        assertEquals(0, conjured.getQuality());
     }
 
     @Test
