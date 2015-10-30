@@ -22,7 +22,7 @@ public class SulfurasItemTest {
         sulfuras.update();
         sulfuras.update();
 
-        assertEquals(50, sulfuras.getQuality());
+        assertEquals(80, sulfuras.getQuality());
         assertEquals(0, sulfuras.getSellIn());
     }
 

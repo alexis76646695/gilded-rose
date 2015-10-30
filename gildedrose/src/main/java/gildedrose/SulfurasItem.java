@@ -6,8 +6,13 @@ package gildedrose;
  */
 public class SulfurasItem extends Item {
 
+    private final int QUALITY;
+    private final int SELLIN;
+
     public SulfurasItem(String name, int sellIn, int quality) {
         super(name, sellIn, quality);
+        QUALITY = quality;
+        SELLIN = sellIn;
     }
 
     @Override
@@ -16,7 +21,12 @@ public class SulfurasItem extends Item {
 
     @Override
     public int getSellIn() {
-        return 0;
+        return SELLIN;
+    }
+
+    @Override
+    public int getQuality() {
+        return QUALITY;
     }
 
 }
