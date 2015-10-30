@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gildedrose;
 
 import org.junit.Test;
@@ -19,7 +14,28 @@ public class NormalItemTest {
 
     @Before
     public void setUp() {
-        normalItem = new Item("Normal Item", 5, 20);
+        normalItem = new NormalItem("Normal Item", 5, 20);
     }
 
+    @Test
+    public void testUpdateQualityInValidDays() {
+        int quality = normalItem.getQuality();
+        normalItem.update();
+        assertEquals(quality - 1, normalItem.getQuality());
+    }
+
+    @Test
+    public void testUpdateQualityInExpiredDays() {
+        int quality = normalItem.getQuality();
+        normalItem.setSellIn(-1);
+        normalItem.update();
+        assertEquals(quality - 2, normalItem.getQuality());
+    }
+
+    @Test
+    public void testQualityNonNegative() {
+        normalItem.setQuality(0);
+        normalItem.update();
+        assertEquals(0, normalItem.getQuality());
+    }
 }

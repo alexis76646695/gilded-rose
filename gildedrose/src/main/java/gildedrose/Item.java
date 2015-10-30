@@ -36,4 +36,10 @@ public class Item {
     public void setQuality(int quality) {
         this.quality = quality;
     }
+
+    public void update() {
+        quality = (sellIn < 0) ? quality - 2 : quality - 1;
+        quality = (quality < 0) ? 0 : quality;
+        sellIn--;
+    }
 }
