@@ -39,11 +39,6 @@ public class GildedRoseTest {
     }
 
     @Test
-    public void testTheTruth() {
-        assertTrue(true);
-    }
-
-    @Test
     public void testOriginalBehaviorNormalItemsUpdate() {
         int dexteryQuality = normalItemDextery.getQuality();
         int elixirQuality = normalItemElixir.getQuality();
