@@ -12,6 +12,7 @@ public class ConjuredItem extends Item {
 
     @Override
     public void fixQuality() {
+        quality = (sellIn < 0) ? quality - 4 : quality - 2;
     }
 
 }
