@@ -1,5 +1,14 @@
-Gilded Rose
-===========
+* What is the The Gilded Rose Kata?
+
+Let me first start with explanation of what a code kata actually is. It’s an exercise which helps programmers improve their skills through practice and repetition.
+
+The Gilded Rose Kata is all about two classes Item and GildedRose that you should refactor. Item has name, sell_in and quality attributes. GildedRose class has update_quality method responsible for decreasing sell_in and updating the quality attributes for each item.
+
+The code is messy and has a lot of if statements that need to be resolved. Rules… hmm, they are pretty clear. Let’s get more familiar with them before we jump in any further.
+
+============================
+
+Problem Description from https://github.com/NotMyself/GildedRose#gilded-rose-refactoring-kata
 
 Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a prominent city ran by a friendly innkeeper named Allison. We also buy and sell only the finest goods. Unfortunately, our goods are constantly degrading in quality as they approach their sell by date. We have a system in place that updates our inventory for us. It was developed by a no-nonsense type named Leeroy, who has moved on to new adventures. Your task is to add the new feature to our system so that we can begin selling a new category of items. First an introduction to our system:
 
@@ -20,11 +29,6 @@ We have recently signed a supplier of conjured items. This requires an update to
 
 * "Conjured" items degrade in Quality twice as fast as normal items
 
-Feel free to make any changes to the UpdateQuality method and add any new code as long as everything still works correctly. However, do not alter the Item class or Items property as those belong to the goblin in the corner who will insta-rage and one-shot you as he doesn't believe in shared code ownership (you can make the UpdateQuality method and Items property static if you like, we'll cover for you). Your work needs to be completed by Friday, February 18, 2011 08:00:00 AM PST.
+Feel free to make any changes to the UpdateQuality method and add any new code as long as everything still works correctly. However, do not alter the Item class or Items property as those belong to the goblin in the corner who will insta-rage and one-shot you as he doesn't believe in shared code ownership (you can make the UpdateQuality method and Items property static if you like, we'll cover for you).
 
 Just for clarification, an item can never have its Quality increase above 50, however "Sulfuras" is a legendary item and as such its Quality is 80 and it never alters.
-
-Credits
--------
-
-* written by [Terry Hughes](https://twitter.com/TerryHughes)
