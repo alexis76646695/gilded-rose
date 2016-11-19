@@ -78,4 +78,12 @@ public class GildedRose {
         }
     }
 
+    public static Strategy getStrategy(Item item) {
+        if(item.getName().contains("Aged Brie")) return new IncreaseQuality();
+        if(item.getName().contains("Sulfuras")) return new NeverChangeQuality();
+        if(item.getName().contains("Backstage passes")) return new MixerQuality();
+        if(item.getName().contains("Conjured")) return new DoubleDecreaseQuality();
+
+        return new DecreaseQuality();
+    }
 }
