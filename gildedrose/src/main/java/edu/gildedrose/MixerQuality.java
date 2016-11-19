@@ -8,7 +8,7 @@ public class MixerQuality implements Strategy {
         if (item.getSellIn() == 0) {
             item.setQuality(0);
         } else {
-            int delta = delta = (item.getSellIn() <= 10 && item.getSellIn() > 5)
+            int delta = (item.getSellIn() <= 10 && item.getSellIn() > 5)
                     ? 2 : (item.getSellIn() <= 5 && item.getSellIn() > 0)
                     ? 3 : 0;
 
