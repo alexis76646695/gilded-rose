@@ -6,7 +6,7 @@ import java.util.List;
 
 public class GildedRose {
 
-    private static List<Item> items = null;
+    public static List<Item> items = null;
 
     /**
      * @param args
@@ -25,7 +25,6 @@ public class GildedRose {
 
         updateQuality();
     }
-
 
     public static void updateQuality() {
         for (int i = 0; i < items.size(); i++) {
