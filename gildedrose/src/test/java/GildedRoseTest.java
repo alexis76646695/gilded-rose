@@ -117,4 +117,33 @@ public class GildedRoseTest {
 		assertEquals(0, backstagePasses.quality);
 	}
 
+	@Test
+	public void testConjuredItemNonNegative() {
+		GildedRose.items = new ArrayList<Item>(0);
+		Item conjured = new Item("Conjured Mana Cake", 3, 0);
+		GildedRose.items.add(conjured);
+		GildedRose.updateQuality();
+
+		assertEquals(0, conjured.quality);
+	}
+
+	@Test
+	public void testConjuredItemNonNegativeFor1() {
+		GildedRose.items = new ArrayList<Item>(0);
+		Item conjured = new Item("Conjured Mana Cake", 3, 1);
+		GildedRose.items.add(conjured);
+		GildedRose.updateQuality();
+
+		assertEquals(0, conjured.quality);
+	}
+
+	@Test
+	public void testConjuredItemSoldIn() {
+		GildedRose.items = new ArrayList<Item>(0);
+		Item conjured = new Item("Conjured Mana Cake", 0, 10);
+		GildedRose.items.add(conjured);
+		GildedRose.updateQuality();
+
+		assertEquals(6, conjured.quality);
+	}
 }

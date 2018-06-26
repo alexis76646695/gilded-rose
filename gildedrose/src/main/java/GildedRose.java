@@ -30,8 +30,11 @@ public class GildedRose {
     {
         for (int i = 0; i < items.size(); i++)
         {
-            if ((!"Aged Brie".equals(items.get(i).getName())) && !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName())) 
+            if ((items.get(i).getName().contains("Conjured")))
             {
+                if (items.get(i).getQuality() > 0)
+                    items.get(i).setQuality(items.get(i).getQuality() - 2);
+            } else if ((!"Aged Brie".equals(items.get(i).getName())) && !"Backstage passes to a TAFKAL80ETC concert".equals(items.get(i).getName())) {
                 if (items.get(i).getQuality() > 0)
                 {
                     if (!"Sulfuras, Hand of Ragnaros".equals(items.get(i).getName()))
